@@ -40,7 +40,13 @@ cd /usr/local/CyberCP/pluginInstaller
 python pluginInstaller.py install --pluginName helloWorld
 ```
 
-3. Once installed, you should see the "helloWorld" item in the CyberPanel sidebar. Clicking it will render your custom view.
+3. Once installed, you should see the "Plugins > helloWorld" item in the CyberPanel sidebar. Clicking it will render your custom view.
+
+
+```
+https://your-server-ip:8090/helloWorld/
+```
+
 
 > Note: If any UI element does not appear immediately after installation, you can issue the remove command to remove it
 
