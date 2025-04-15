@@ -1,0 +1,43 @@
+#!/usr/local/CyberCP/bin/python
+import os
+
+urls_path = "/usr/local/CyberCP/CyberCP/urls.py"
+
+RESET='\033[0;0m'
+BLUE="\033[0;34m"
+print(BLUE + "Running Post-Install Script..." + RESET)
+
+if os.path.isfile(urls_path):
+    with open(urls_path, 'r') as file:
+        lines = file.readlines()
+
+    url_imported = False
+    insert_index = None
+
+    for idx, line in enumerate(lines):
+        line_stripped = line.strip()
+        if line_stripped.startswith("from"):
+            if "django.conf.urls" in line_stripped and "url" in line_stripped:
+                url_imported = True
+                break
+            if not insert_index and "from" in line_stripped:
+                insert_index = idx + 1
+
+    if url_imported:
+        print(BLUE + "'url' has already been imported, no action taken.")
+    else:
+        print(BLUE + "'url' import not found, adding...")
+
+        if insert_index is None:
+            insert_index = 0
+
+        lines.insert(insert_index, "from django.conf.urls import url\n")
+
+        with open(urls_path, 'w') as file:
+            file.writelines(lines)
+
+        print(BLUE + "The line 'from django.conf.urls import url' has been added successfully.")
+else:
+    print(BLUE + "The file {urls_path} was not found.")
+
+print(BLUE + "End Post-Install Script..." + RESET)

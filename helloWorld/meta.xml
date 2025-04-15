@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cyberpanelPluginConfig>
+    <name>helloWorld</name>
+    <type>plugin</type>
+    <description>helloWorld Plugin by: Onur TAŞCI https://github.com/OnurTasci</description>
+    <version>0</version>
+</cyberpanelPluginConfig>
