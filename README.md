@@ -75,7 +75,6 @@ Hello, World! from your CyberPanel plugin.
 
 This plugin is meant for learning and experimentation. Feel free to fork and build on it for your own CyberPanel projects!
 
-@usmannasir
 
 ---
 
